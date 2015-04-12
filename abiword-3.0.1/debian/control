@@ -156,6 +156,16 @@ Description: GObject introspection data for libabiword
  It can be used by packages using the GIRepository format to generate
  dynamic bindings.
 
+Package: python-abiword-3.0
+Section: introspection
+Architecture: any
+Depends: ${gir:Depends}, ${misc:Depends}
+Description: Python bindings for developing with libabiword
+ This package contains python gi overrides for libabiword.
+ .
+ These bindings enable Python programmers to use AbiWord in their
+ Gtk3 programs.
+
 Package: abiword-dbg
 Section: debug
 Priority: extra
