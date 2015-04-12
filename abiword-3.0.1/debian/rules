@@ -9,11 +9,12 @@ $(info $(if $(archpatch), $(shell cat $(archpatch) >> debian/patches/series \
 && $(RM) $(archpatch) && dh_quilt_patch)))
 
 # parallel build by default on linux
-ifeq ($(DEB_HOST_ARCH_OS),linux)
-    ifeq ($(findstring parallel=,$(DEB_BUILD_OPTIONS)),)
-        export DEB_BUILD_OPTIONS+=parallel=$(shell getconf _NPROCESSORS_ONLN)
-    endif
-endif
+# XXX disable parallel to build with instrospection as in fedora.
+#ifeq ($(DEB_HOST_ARCH_OS),linux)
+#    ifeq ($(findstring parallel=,$(DEB_BUILD_OPTIONS)),)
+#        export DEB_BUILD_OPTIONS+=parallel=$(shell getconf _NPROCESSORS_ONLN)
+#    endif
+#endif
 $(info DEB_BUILD_OPTIONS:$(origin DEB_BUILD_OPTIONS)=$(DEB_BUILD_OPTIONS))
 
 #: Disabling format hardening (-format) might help for error:
@@ -67,26 +68,12 @@ override_dh_autoreconf:
 override_dh_auto_configure:
 	# generate icon
 	convert abiword.png -resize 32x32 debian/abiword.xpm
+	# XXX remove all unused extensions as in fedora.
 	dh_auto_configure -- \
-		--without-gnomevfs \
-		--with-gio \
-		--with-redland \
-		--with-libtidy \
-		--with-goffice \
-		--enable-shared \
 		--enable-clipart \
 		--enable-templates \
-		--enable-collab-backend-tcp \
-		--enable-collab-backend-xmpp \
-		--enable-collab-backend-sugar \
-		--enable-collab-backend-service \
-		--enable-collab-backend-telepathy \
-		--disable-silent-rules \
-		--enable-dependency-tracking \
-		--enable-plugins="$(plugins)"
-#		--with-gtk2 \
-#		--enable-debug \
-#		--enable-introspection \
+		--enable-plugins="$(plugins)" \
+		--enable-introspection \
 
 override_dh_auto_test:
 	# do not stop on failed test(s)
