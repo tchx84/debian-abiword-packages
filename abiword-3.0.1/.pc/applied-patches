@@ -1,0 +1,7 @@
+librevenge.patch
+624095-disable_smooth_scrolling.patch
+make-clean.patch
+autosave.diff
+ctrl-comma-subscript.diff
+mime-types-desktop.diff
+mime-types.diff

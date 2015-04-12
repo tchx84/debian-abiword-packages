@@ -1,0 +1,11 @@
+usr/share/abiword-*/certs
+usr/share/abiword-*/clipart
+usr/share/abiword-*/omml_xslt
+usr/share/abiword-*/strings
+usr/share/abiword-*/system.*
+usr/share/abiword-*/templates
+usr/share/abiword-*/ui
+usr/share/abiword-*/xsltml
+usr/share/abiword-*/*.xml
+usr/share/abiword-*/system.profile*
+usr/share/dbus-*
