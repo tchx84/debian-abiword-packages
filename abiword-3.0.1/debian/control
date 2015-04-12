@@ -5,8 +5,8 @@ Maintainer: Debian QA Group <packages@qa.debian.org>
 Build-Depends: debhelper (>= 9), dh-autoreconf, quilt, imagemagick
  ,bison
  ,flex
-# ,gobject-introspection
-#  ,libgirepository1.0-dev
+ ,gobject-introspection
+ ,libgirepository1.0-dev
  ,libaiksaurus-1.2-dev
  ,libaiksaurusgtk-1.2-dev
  ,libasio-dev
@@ -146,15 +146,15 @@ Description: efficient, featureful word processor with collaboration -- developm
  This package contains development files for software linking against
  libabiword-3.0.
 
-#Package: gir1.2-abiword-3.0
-#Section: introspection
-#Architecture: any
-#Depends: ${gir:Depends}, ${misc:Depends}
-#Description: GObject introspection data for libabiword
-# This package contains introspection data for libabiword.
-# .
-# It can be used by packages using the GIRepository format to generate
-# dynamic bindings.
+Package: gir1.2-abiword-3.0
+Section: introspection
+Architecture: any
+Depends: ${gir:Depends}, ${misc:Depends}
+Description: GObject introspection data for libabiword
+ This package contains introspection data for libabiword.
+ .
+ It can be used by packages using the GIRepository format to generate
+ dynamic bindings.
 
 Package: abiword-dbg
 Section: debug
